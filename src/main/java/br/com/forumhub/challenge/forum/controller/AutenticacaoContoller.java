@@ -28,7 +28,7 @@ public class AutenticacaoContoller {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity<Object> efetuarLogin(@RequestBody @Valid DTOAutenticacao autenticacaoDTO) throws UsernameNotFoundException {
+    public ResponseEntity efetuarLogin(@RequestBody @Valid DTOAutenticacao autenticacaoDTO) throws UsernameNotFoundException {
 
         var token = new UsernamePasswordAuthenticationToken(autenticacaoDTO.email(), autenticacaoDTO.password());
         var authentication = authenticationManager.authenticate(token);
